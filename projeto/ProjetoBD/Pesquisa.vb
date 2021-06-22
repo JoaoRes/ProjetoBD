@@ -5,7 +5,7 @@ Public Class Pesquisa
     Dim CN As SqlConnection
     Dim CMD As SqlCommand
     Private Sub Pesquisa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CN = New SqlConnection("data source=DESKTOP-JR2SDSQ\SQLEXPRESS; integrated security=true;initial catalog=camilton")
+        CN = New SqlConnection("data source=LAPTOP-S4MP155H;integrated security=true;initial catalog=camilton")
 
         CMD = New SqlCommand
         CMD.Connection = CN
@@ -29,6 +29,7 @@ Public Class Pesquisa
         End While
 
 
+        CN.Close()
 
 
 
