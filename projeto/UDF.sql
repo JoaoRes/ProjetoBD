@@ -106,4 +106,21 @@ AS
 GO
 SELECT * FROM dbo.getClientsIdContName(12345,912850654, 'Esteves');
 
+
+
+
+Go
+Create Function dbo.getProntoEnvio () RETURNS @ShipmentTable TABLE([EncomenID] INT, [dataenvio] date)
+as
+	begin
+		INSERT @ShipmentTable
+			SELECT EncomenID, FK_Envio
+			from Encomenda
+			where ProntoEnv = 1
+		RETURN;
+	END;
+go
+
+SELECT * FROM dbo.getProntoEnvio()
+
 */

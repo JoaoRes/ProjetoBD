@@ -28,3 +28,11 @@ BEGIN
 END 
 
 GO
+
+Go
+Create PROCEDURE dbo.UpdateProntoEnvio
+as
+begin	
+	update Encomenda
+	set ProntoEnv = 1
+	where COUNT() 
