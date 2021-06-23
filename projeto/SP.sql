@@ -32,7 +32,10 @@ GO
 Go
 Create PROCEDURE dbo.UpdateProntoEnvio
 as
+	@pronto int
 begin	
-	update Encomenda
-	set ProntoEnv = 1
-	where COUNT() 
+	if @pronto = select count(nota) from Seccao
+		update Encomenda 
+		set ProntoEnv = 1
+end
+go
