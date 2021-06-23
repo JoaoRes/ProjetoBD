@@ -1,4 +1,4 @@
-/*CREATE SCHEMA camilton;
+CREATE SCHEMA camilton;
 
 Create Table camilton.Materiais (
 	referencia int not null,
@@ -142,40 +142,4 @@ create table camilton.Necessita (
 	codigo int references camilton.TipoPag(codigo) not null,
 	Primary key (EncomenID, codigo)
 )
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

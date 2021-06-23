@@ -1,8 +1,10 @@
+
+
 use camilton;
 
-/*
+
 GO
-CREATE FUNCTION dbo.getClients () RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClients () RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -11,10 +13,10 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClients();
+SELECT * FROM camilton.getClients();
 
 GO
-CREATE FUNCTION dbo.getClientsID (@id as INT) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsID (@id as INT) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -24,10 +26,10 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsID(12345);
+SELECT * FROM camilton.getClientsID(12345);
 
 GO
-CREATE FUNCTION dbo.getClientsName (@name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsName (@name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -37,10 +39,10 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsName('Ricardo');
+SELECT * FROM camilton.getClientsName('Ricardo');
 
 GO
-CREATE FUNCTION dbo.getClientsCont (@contacto as INT) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsCont (@contacto as INT) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -50,10 +52,10 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsCont(912850654);
+SELECT * FROM camilton.getClientsCont(912850654);
 
 GO
-CREATE FUNCTION dbo.getClientsIdCont (@id as INT, @contacto as INT) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsIdCont (@id as INT, @contacto as INT) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -63,10 +65,10 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsIdCont(12345,912850654);
+SELECT * FROM camilton.getClientsIdCont(12345,912850654);
 
 GO
-CREATE FUNCTION dbo.getClientsIdName (@id as INT, @name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsIdName (@id as INT, @name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -76,10 +78,10 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsIdName(12345, 'Esteves');
+SELECT * FROM camilton.getClientsIdName(12345, 'Esteves');
 
 GO
-CREATE FUNCTION dbo.getClientsContName (@contacto as INT, @name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsContName (@contacto as INT, @name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -89,12 +91,12 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsContName(912850654, 'Esteves');
+SELECT * FROM camilton.getClientsContName(912850654, 'Esteves');
 
 
 
 GO
-CREATE FUNCTION dbo.getClientsIdContName (@id as INT, @contacto as INT, @name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
+CREATE FUNCTION camilton.getClientsIdContName (@id as INT, @contacto as INT, @name as VARCHAR(50)) RETURNS @CliTable TABLE([clienteID] INT, [nome] VARCHAR(50), [contacto] INT, [endereco] VARCHAR(50))
 AS
 	BEGIN
 		INSERT @CliTable
@@ -104,13 +106,13 @@ AS
 		RETURN;
 	END;
 GO
-SELECT * FROM dbo.getClientsIdContName(12345,912850654, 'Esteves');
+SELECT * FROM camilton.getClientsIdContName(12345,912850654, 'Esteves');
 
 
 
 
 Go
-Create Function dbo.getProntoEnvio () RETURNS @ShipmentTable TABLE([EncomenID] INT, [dataenvio] date)
+Create Function camilton.getProntoEnvio () RETURNS @ShipmentTable TABLE([EncomenID] INT, [dataenvio] date)
 as
 	begin
 		INSERT @ShipmentTable
@@ -121,19 +123,22 @@ as
 	END;
 go
 
-SELECT * FROM dbo.getProntoEnvio()
+SELECT * FROM camilton.getProntoEnvio()
+
+
+
 
 
 
 
 go 
-create Function dbo.getEncomenda (@encomenID as int) RETURNS @EncomendaTable TABLE([EncomenID] int, [cliente] varchar(50), [produto] varchar(30), [quantidade] int, [preco] int)
+create Function camilton.getEncomenda (@encomenID as int) RETURNS @EncomendaTable TABLE([EncomenID] int, [cliente] varchar(50), [produto] varchar(30), [quantidade] int, [preco] int)
 as
 	begin
 		insert @EncomendaTable
-			Select Encomenda.EncomenID, Cliente.nome, Produto.nome, encomenda.Quantidade, Encomenda.Quantidade*Produto.preco
-			from ((Encomenda join Pertence on Encomenda.EncomenID=pertence.EncomenID) join Produto on Produto.ProductID=pertence.ProductID) join Cliente on Cliente.clienteID=Encomenda.FK_Cliente 
-			where @encomenID= Encomenda.EncomenID
+			Select camilton.Encomenda.EncomenID, camilton.Cliente.nome, camilton.Produto.nome, camilton.Encomenda.Quantidade, camilton.Encomenda.Quantidade*camilton.Produto.preco
+			from ((camilton.Encomenda join camilton.Pertence on camilton.Encomenda.EncomenID=camilton.pertence.EncomenID) join camilton.Produto on camilton.Produto.ProductID=camilton.pertence.ProductID) join camilton.Cliente on camilton.Cliente.clienteID=camilton.Encomenda.FK_Cliente 
+			where @encomenID= camilton.Encomenda.EncomenID
 		RETURN;
 	END
 GO
@@ -142,98 +147,98 @@ GO
 
 
 go 
-Create function dbo.getProdutosComCliente () RETURNS @ProdutoTable TABLE([cliente] varchar(50), [produto] varchar(30))
+Create function camilton.getProdutosComCliente () RETURNS @ProdutoTable TABLE([cliente] varchar(50), [produto] varchar(30))
 as 
 	begin
 		insert @ProdutoTable
-			select Cliente.nome, Produto.nome
-			from ((Encomenda join Pertence on Encomenda.EncomenID=pertence.EncomenID) join Produto on Produto.ProductID=pertence.ProductID) join Cliente on Cliente.clienteID=Encomenda.FK_Cliente
+			select camilton.Cliente.nome, camilton.Produto.nome
+			from ((camilton.Encomenda join camilton.Pertence on camilton.Encomenda.EncomenID=camilton.pertence.EncomenID) join camilton.Produto on camilton.Produto.ProductID=camilton.pertence.ProductID) join camilton.Cliente on camilton.Cliente.clienteID=camilton.Encomenda.FK_Cliente
 		Return;
 	end
 go
 
 go 
-Create function dbo.getProdutosporCliente (@cliename as varchar(30)) RETURNS @ProdutoTable TABLE([cliente] varchar(50), [produto] varchar(30), [Ref Produto] int, [tipo] varchar(30))
+Create function camilton.getProdutosporCliente (@cliename as varchar(30)) RETURNS @ProdutoTable TABLE([cliente] varchar(50), [produto] varchar(30), [Ref Produto] int, [tipo] varchar(30))
 as 
 	begin
 		insert @ProdutoTable
-			select Cliente.nome, Produto.nome, Produto.ProductID , TipoProd.designacao
-			from ((Encomenda join Pertence on Encomenda.EncomenID=pertence.EncomenID) join Produto on Produto.ProductID=pertence.ProductID join TipoProd on Produto.FK_TipoProd=TipoProd.codigo) join Cliente on Cliente.clienteID=Encomenda.FK_Cliente
-			where @cliename=Cliente.nome
-		Return;
-	end
-go
-
-
-go 
-Create function dbo.getProdutosComEncomenda () RETURNS @ProdutoTable TABLE([Encomenda] varchar(50), [produto] varchar(30), [Ref Produto] int, [tipo] varchar(30))
-as 
-	begin
-		insert @ProdutoTable
-			select Encomenda.EncomenID, Produto.nome, Produto.ProductID,TipoProd.designacao
-			from ((Encomenda join Pertence on Encomenda.EncomenID=pertence.EncomenID) join Produto on Produto.ProductID=pertence.ProductID join TipoProd on Produto.FK_TipoProd=TipoProd.codigo)
+			select camilton.Cliente.nome, camilton.Produto.nome, camilton.Produto.ProductID , camilton.TipoProd.designacao
+			from ((camilton.Encomenda join camilton.Pertence on camilton.Encomenda.EncomenID=camilton.pertence.EncomenID) join camilton.Produto on camilton.Produto.ProductID=camilton.pertence.ProductID join camilton.TipoProd on camilton.Produto.FK_TipoProd=camilton.TipoProd.codigo) join camilton.Cliente on camilton.Cliente.clienteID=camilton.Encomenda.FK_Cliente
+			where @cliename=camilton.Cliente.nome
 		Return;
 	end
 go
 
 
 go 
-Create function dbo.getProdutosporEncomenda (@EncomenID int) RETURNS @ProdutoTable TABLE([Encomenda] varchar(50), [produto] varchar(30), [Ref Produto] int, [tipo] varchar(30))
+Create function camilton.getProdutosComEncomenda () RETURNS @ProdutoTable TABLE([Encomenda] varchar(50), [produto] varchar(30), [Ref Produto] int, [tipo] varchar(30))
 as 
 	begin
 		insert @ProdutoTable
-			select Encomenda.EncomenID, Produto.nome, Produto.ProductID,TipoProd.designacao
-			from ((Encomenda join Pertence on Encomenda.EncomenID=pertence.EncomenID) join Produto on Produto.ProductID=pertence.ProductID join TipoProd on Produto.FK_TipoProd=TipoProd.codigo)
-			where @EncomenID = Encomenda.EncomenID
+			select camilton.Encomenda.EncomenID, camilton.Produto.nome, camilton.Produto.ProductID,camilton.TipoProd.designacao
+			from ((camilton.Encomenda join camilton.Pertence on camilton.Encomenda.EncomenID=camilton.pertence.EncomenID) join camilton.Produto on camilton.Produto.ProductID=camilton.pertence.ProductID join camilton.TipoProd on camilton.Produto.FK_TipoProd=camilton.TipoProd.codigo)
 		Return;
 	end
 go
-*/
+
 
 go 
-Create function dbo.getSolasPorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [tamanho] int)
+Create function camilton.getProdutosporEncomenda (@EncomenID int) RETURNS @ProdutoTable TABLE([Encomenda] varchar(50), [produto] varchar(30), [Ref Produto] int, [tipo] varchar(30))
+as 
+	begin
+		insert @ProdutoTable
+			select camilton.Encomenda.EncomenID, camilton.Produto.nome, camilton.Produto.ProductID,camilton.TipoProd.designacao
+			from ((camilton.Encomenda join camilton.Pertence on camilton.Encomenda.EncomenID=camilton.pertence.EncomenID) join camilton.Produto on camilton.Produto.ProductID=camilton.pertence.ProductID join camilton.TipoProd on camilton.Produto.FK_TipoProd=camilton.TipoProd.codigo)
+			where @EncomenID = camilton.Encomenda.EncomenID
+		Return;
+	end
+go
+
+
+go 
+Create function camilton.getSolasPorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [tamanho] int)
 as
 	begin
 		insert @ProdutoTable
-			select CategFornec.tipoMaterial, Materiais.stock, Solas.tamanho
-			from  ((solas join Materiais on solas.referencia=Materiais.referencia) join fornecedor on Materiais.referencia=fornecedor.FK_Material) join CategFornec on fornecedor.FK_catFor=CategFornec.codigo
-			where @Referencia=Materiais.referencia 	
+			select camilton.CategFornec.tipoMaterial, camilton.Materiais.stock, camilton.Solas.tamanho
+			from  ((camilton.solas join camilton.Materiais on camilton.solas.referencia=camilton.Materiais.referencia) join camilton.fornecedor on camilton.Materiais.referencia=camilton.fornecedor.FK_Material) join camilton.CategFornec on camilton.fornecedor.FK_catFor=camilton.CategFornec.codigo
+			where @Referencia=camilton.Materiais.referencia 	
 		RETURN
 	END
 GO
 
 go 
-Create function dbo.getPelePorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [cor] int)
+Create function camilton.getPelePorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [cor] int)
 as
 	begin
 		insert @ProdutoTable
-			select CategFornec.tipoMaterial, Materiais.stock, Pele.cor
-			from  ((Pele join Materiais on Pele.referencia=Materiais.referencia) join fornecedor on Materiais.referencia=fornecedor.FK_Material) join CategFornec on fornecedor.FK_catFor=CategFornec.codigo
-			where @Referencia=Materiais.referencia 	
+			select camilton.CategFornec.tipoMaterial, camilton.Materiais.stock, camilton.Pele.cor
+			from  ((camilton.Pele join camilton.Materiais on camilton.Pele.referencia=camilton.Materiais.referencia) join camilton.fornecedor on camilton.Materiais.referencia=camilton.fornecedor.FK_Material) join camilton.CategFornec on camilton.fornecedor.FK_catFor=camilton.CategFornec.codigo
+			where @Referencia=camilton.Materiais.referencia 	
 		RETURN
 	END
 GO
 
 go 
-Create function dbo.getPalminhasPorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [tamanho] int)
+Create function camilton.getPalminhasPorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [tamanho] int)
 as
 	begin
 		insert @ProdutoTable
-			select CategFornec.tipoMaterial, Materiais.stock, Palmilhas.tamanho
-			from  ((Palmilhas join Materiais on Palmilhas.referencia=Materiais.referencia) join fornecedor on Materiais.referencia=fornecedor.FK_Material) join CategFornec on fornecedor.FK_catFor=CategFornec.codigo
-			where @Referencia=Materiais.referencia 	
+			select camilton.CategFornec.tipoMaterial, camilton.Materiais.stock, camilton.Palmilhas.tamanho
+			from  ((camilton.Palmilhas join camilton.Materiais on camilton.Palmilhas.referencia=camilton.Materiais.referencia) join camilton.fornecedor on camilton.Materiais.referencia=camilton.fornecedor.FK_Material) join camilton.CategFornec on camilton.fornecedor.FK_catFor=camilton.CategFornec.codigo
+			where @Referencia=camilton.Materiais.referencia 	
 		RETURN
 	END
 GO
 
 go 
-Create function dbo.getAplicacoesPorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [tipo] int)
+Create function camilton.getAplicacoesPorReferencia (@Referencia int) RETURNS @ProdutoTable TABLE ([material] varchar(50), [stock] int, [tipo] int)
 as
 	begin
 		insert @ProdutoTable
-			select CategFornec.tipoMaterial, Materiais.stock, Aplicacoes.tipo
-			from  ((Aplicacoes join Materiais on Aplicacoes.referencia=Materiais.referencia) join fornecedor on Materiais.referencia=fornecedor.FK_Material) join CategFornec on fornecedor.FK_catFor=CategFornec.codigo
-			where @Referencia=Materiais.referencia 	
+			select camilton.CategFornec.tipoMaterial, camilton.Materiais.stock, camilton.Aplicacoes.tipo
+			from  ((camilton.Aplicacoes join camilton.Materiais on camilton.Aplicacoes.referencia=camilton.Materiais.referencia) join camilton.fornecedor on camilton.Materiais.referencia=camilton.fornecedor.FK_Material) join camilton.CategFornec on camilton.fornecedor.FK_catFor=camilton.CategFornec.codigo
+			where @Referencia=camilton.Materiais.referencia 	
 		RETURN
 	END
 GO
