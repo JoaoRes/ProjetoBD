@@ -243,6 +243,30 @@ as
 	END
 GO
 
+go
+create function ReferenciasPorProduto () RETURNS @ProdutoTable TABLE ([produtoID] varchar(50), [Nome Produto] varchar(30), [material] varchar(30), [referencia] int, [quantidade] int)
+as
+	begin
+		insert @ProdutoTable
+			select Produto.productID, Produto.nome, CategFornec.TipoMaterial, Materiais.Referencia, Precisa.Quantidade
+			from ((Produto join precisa on Produto.ProductID=precisa.ProductID)join Materiais on  Materiais.referencia=precisa.referencia) join fornecedor on fornecedor.FK_Material=Materiais.referencia join CategFornec on Fornecedor.FK_CatFor=CategFornec.codigo
+		Return
+	end
+go
+
+
+go
+create function ReferenciasPorUmProduto (@prodID as int) RETURNS @ProdutoTable TABLE ([produtoID] varchar(50), [Nome Produto] varchar(30), [material] varchar(30), [referencia] int, [quantidade] int)
+as
+	begin
+		insert @ProdutoTable
+			select camilton.Produto.productID, camilton.Produto.nome, camilton.CategFornec.TipoMaterial, camilton.Materiais.Referencia, camilton.Precisa.Quantidade
+			from ((camilton.Produto join camilton.precisa on camilton.Produto.ProductID=camilton.precisa.ProductID) join camilton.Materiais on camilton.Materiais.referencia=camilton.precisa.referencia) join camilton.fornecedor on camilton.fornecedor.FK_Material=camilton.Materiais.referencia join camilton.CategFornec on camilton.Fornecedor.FK_CatFor=camilton.CategFornec.codigo
+			where @prodID = camilton.Produto.productID
+		Return
+	end
+go
+
 
 
 
