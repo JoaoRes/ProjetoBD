@@ -279,5 +279,182 @@ Public Class Form1
         Update()
     End Sub
 
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "SELECT nota FROM camilton.getNotas();"
+        CN.Open()
+
+        Dim RDR As SqlDataReader
+        RDR = CMD.ExecuteReader
+        ComboBox1.Items.Clear()
+        While RDR.Read
+            ComboBox1.Items.Add(RDR.Item("nota"))
+        End While
+
+        CN.Close()
+
+    End Sub
+
+    Private Sub TabEscrCli_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabEscrCli.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.Click
+
+        CMD = CN.CreateCommand
+        CMD.CommandText = "SELECT * FROM camilton.getSeccao();"
+        CN.Open()
+
+        Dim RDR As SqlDataReader
+        RDR = CMD.ExecuteReader
+        ComboBox2.Items.Clear()
+        While RDR.Read
+            ComboBox2.Items.Add(RDR.Item("seccao"))
+        End While
+
+        CN.Close()
+    End Sub
+
+    Private Sub AdiconarSeccao_Click(sender As Object, e As EventArgs) Handles AdiconarSeccao.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insSeccao 
+                            @nota             = @nota      ,
+                            @dataini         = @ini     ,
+                            @datafim          = @fim,
+                            @FK_TPSeccao        =@tipo"
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@nota", ComboBox1.Text)
+        CMD.Parameters.AddWithValue("@ini", DateTimePicker1.Value)
+        CMD.Parameters.AddWithValue("@fim", DateTimePicker2.Value)
+        CMD.Parameters.AddWithValue("@tipo", ComboBox2.Text)
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+    End Sub
+
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+    Private Sub ComboProd_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboProd.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "SELECT * FROM camilton.getProdutosComEncomenda();"
+        CN.Open()
+
+        Dim RDR As SqlDataReader
+        RDR = CMD.ExecuteReader
+        ComboProd.Items.Clear()
+        While RDR.Read
+            ComboProd.Items.Add(RDR.Item("Ref Produto"))
+        End While
+
+        CN.Close()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Btn_PesqMat.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "SELECT * FROM ReferenciasPorUmProduto(" + ComboProd.Text + ");"
+        CN.Open()
+
+        Dim RDR As SqlDataReader
+        RDR = CMD.ExecuteReader
+        List_Mat.Items.Clear()
+
+        While RDR.Read
+            List_Mat.Items.Add(String.Format("{0} | {1} | {2} ", RDR.Item("material"), RDR.Item("referencia"), RDR.Item("quantidade")))
+        End While
+        CN.Close()
+    End Sub
+
+    Private Sub btn_Pele_Click(sender As Object, e As EventArgs) Handles btn_Pele.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insPele 
+                            @ref             = @ref      ,
+                            @cor         = @cor "
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@ref", txt_refPele.Text)
+        CMD.Parameters.AddWithValue("@cor", txt_corPele.Text)
+
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+    End Sub
+
+    Private Sub btn_Solas_Click(sender As Object, e As EventArgs) Handles btn_Solas.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insSolas
+                            @ref             = @ref      ,
+                            @size         = @size "
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@ref", txt_refSola.Text)
+        CMD.Parameters.AddWithValue("@size", txt_tamanhoSola.Text)
+
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+    End Sub
+
+    Private Sub btn_Palmilhas_Click(sender As Object, e As EventArgs) Handles btn_Palmilhas.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insPalmilhas
+                            @ref             = @ref      ,
+                            @size         = @size "
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@ref", txt_refPalmilhas.Text)
+        CMD.Parameters.AddWithValue("@size", txt_tamanhoPalmilhas.Text)
+
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+    End Sub
+
+    Private Sub btn_Aplicacoes_Click(sender As Object, e As EventArgs) Handles btn_Aplicacoes.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insSolas
+                            @ref             = @ref      ,
+                            @tipo         = @tipo"
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@ref", txt_refAplicacoes.Text)
+        CMD.Parameters.AddWithValue("@size", txt_tipoAplicacoes.Text)
+
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+    End Sub
 
 End Class
