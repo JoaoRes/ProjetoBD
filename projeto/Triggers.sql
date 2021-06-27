@@ -77,6 +77,7 @@ as
 			end
 		else
 			begin
+			insert into camilton.Materiais values (@ref, '');
 			insert into camilton.Solas select * from inserted;
 			end
 	end
@@ -99,6 +100,7 @@ as
 			end
 		else
 			begin
+			insert into camilton.Materiais values (@ref, '');
 			insert into camilton.Pele select * from inserted;
 			end
 	end

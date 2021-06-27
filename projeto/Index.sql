@@ -1,0 +1,1 @@
+Create index idxEncEnvio on camilton.Encomenda(EncomenID, FK_Envio)
