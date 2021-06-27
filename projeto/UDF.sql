@@ -126,11 +126,6 @@ go
 SELECT * FROM camilton.getProntoEnvio()
 
 
-
-
-
-
-
 go 
 create Function camilton.getEncomenda (@encomenID as int) RETURNS @EncomendaTable TABLE([EncomenID] int, [cliente] varchar(50), [produto] varchar(30), [quantidade] int, [preco] int)
 as

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj": {}
+    "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj": {}
   },
   "projects": {
-    "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj": {
+    "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj",
+        "projectUniqueName": "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj",
         "projectName": "ProjetoBD",
-        "projectPath": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj",
+        "projectPath": "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj",
         "packagesPath": "C:\\Users\\afons\\.nuget\\packages\\",
-        "outputPath": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\obj\\",
+        "outputPath": "D:\\BD\\Proj\\ProjetoBD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\afons\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
