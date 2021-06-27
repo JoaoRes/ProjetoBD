@@ -151,3 +151,69 @@ as
 go
 
 
+
+go 
+create trigger camilton.UpdateAdicionarEncomenda on camilton.Encomenda
+after insert, update
+as 
+	begin
+		SET NOCOUNT ON;
+		DECLARE @encomenID as int
+		Declare @nota as int
+		select @nota= (SELECT TOP 1 nota FROM camilton.Requer ORDER BY EncomenID DESC) + 100
+		select @encomenID = inserted.EncomenID from inserted;
+		insert into camilton.Producao values (@nota,'','')
+		insert into camilton.Requer values (@nota,@encomenID)
+	end
+go
+
+
+go
+CREATE TRIGGER camilton.updateProdDateFim on camilton.Encomenda
+after insert, Update
+as
+	Begin
+	SET NOCOUNT ON;
+	DECLARE @id as int
+	select @id = inserted.EncomenID from inserted;
+	UPDATE camilton.Producao SET DataFim = GETDATE() where nota = (select nota from camilton.Requer where camilton.Requer.EncomenID = @id)
+	end
+go
+
+go
+CREATE TRIGGER camilton.updateProdDate on camilton.Encomenda
+for Update
+as
+	Begin
+	SET NOCOUNT ON;
+	DECLARE @id as int
+	select @id = inserted.EncomenID from inserted;
+	UPDATE camilton.Producao SET DataFim = GETDATE() where nota = (select nota from camilton.Requer where camilton.Requer.EncomenID = @id)
+end
+go
+
+
+go
+CREATE TRIGGER camilton.updateProdDateIni on camilton.Seccao
+after insert , update
+as
+	Begin
+	DECLARE @dateI as Date
+	select @dateI = inserted.DataIni from inserted;
+	MERGE INTO camilton.Producao P
+		USING (SELECT sec.nota
+		FROM ((camilton.Seccao as sec JOIN camilton.Producao as prod ON sec.nota = prod.nota)
+		JOIN camilton.Requer as req ON prod.nota = req.Nota)
+		JOIN camilton.Encomenda as enc ON req.EncomenID = enc.EncomenID
+		GROUP BY sec.nota
+		HAVING COUNT(sec.nota) = 1
+		) S
+		ON P.nota = S.nota
+	WHEN MATCHED THEN
+		UPDATE
+		set DataIni = @dateI;
+	end
+go
+	
+
+

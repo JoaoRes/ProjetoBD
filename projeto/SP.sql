@@ -76,3 +76,28 @@ AS
 				set ProntoEnv = 1;
 	END;
 go
+
+go
+create proc camilton.insPertence
+	@encomenID                      INT, 
+	@ProductID						INT
+as
+	begin	
+		if ((select count(1) from camilton.Encomenda where Encomenda.EncomenID=@encomenID) > 0)
+			begin
+			if((select count(1) from camilton.Produto where Produto.ProductID=@ProductID) > 0)
+				begin
+				insert into camilton.Pertence(
+					ProductID,
+					EncomenID
+				)
+				Values(
+					@ProductID,
+					@encomenID
+				)
+				end
+			end
+	end
+go	
+
+
