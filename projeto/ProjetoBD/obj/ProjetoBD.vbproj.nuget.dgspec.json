@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj": {}
+    "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj": {}
   },
   "projects": {
-    "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj": {
+    "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj",
+        "projectUniqueName": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj",
         "projectName": "ProjetoBD",
-        "projectPath": "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj",
+        "projectPath": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj",
         "packagesPath": "C:\\Users\\afons\\.nuget\\packages\\",
-        "outputPath": "D:\\BD\\Proj\\ProjetoBD\\obj\\",
+        "outputPath": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\afons\\AppData\\Roaming\\NuGet\\NuGet.Config",

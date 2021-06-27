@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZK9R/nWVcI6g6lWCogWfUSfXK/KbLEhiDh/+wEnQ8Z2ofQ6YH9/4tO5puZC2hna5wm5nHWQ3cyqfBualtu2+Ow==",
+  "dgSpecHash": "uQLWXOWfNYE0Uz7IIozYYUQFafkwfDifYwJq6pGENM/k/Ya778R3EmmZEk9qSq2QnSaVzb5gUfwCTFYpZ3TtfQ==",
   "success": true,
-  "projectFilePath": "D:\\BD\\Proj\\ProjetoBD\\ProjetoBD.vbproj",
+  "projectFilePath": "D:\\BD\\ProjetoBD\\projeto\\ProjetoBD\\ProjetoBD.vbproj",
   "expectedPackageFiles": [
     "C:\\Users\\afons\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\afons\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

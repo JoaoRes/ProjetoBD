@@ -31,19 +31,25 @@ END
 
 GO
 
-
 GO
 CREATE PROC camilton.insEnc
-		@encomenID                      INT, 
-		@quantidade                     INT, 
-		@clienteID						INT,
-		@envio							DATE
+		@quantidade                     INT,
+		@envio							DATE,
+		@name							VARCHAR(30),
+		@prodName						VARCHAR(30)
 AS 
 BEGIN 
      SET NOCOUNT ON 
 
 	 if ((select count(1) from camilton.Envio where Envio.DataEnvio=@envio) = 0)
 		insert into camilton.Envio values (@envio)
+
+	DECLARE @encomenID INT;
+	SELECT @encomenID=MAX(EncomenID) FROM camilton.Encomenda;
+	DECLARE @id INT;
+	SELECT @id=clienteID FROM camilton.Cliente where nome like @name;
+	DECLARE @prodID INT;
+	SELECT TOP 1 @prodID=ProductID FROM camilton.Produto where nome like @prodName;
 
      INSERT INTO camilton.Encomenda
           (                    
@@ -55,16 +61,25 @@ BEGIN
           ) 
      VALUES 
           ( 
-            @encomenID,
+            @encomenID+1,
             @quantidade,
             0,
-            @clienteID,
+            @id,
 			@envio
-          ) 
+          )
 
+	INSERT INTO camilton.Pertence
+          (                    
+            EncomenID				,
+			ProductID				
+          ) 
+     VALUES 
+          ( 
+            @encomenID+1,
+            @prodID
+          )
 END 
 GO
-
 
 GO
 CREATE proc camilton.updatePronto
@@ -293,5 +308,29 @@ create proc camilton.insPertence
 			end
 		end
 	end
+go
+
+go 
+create proc camilton.insSeccao
+    @nota int,
+    @dataini date,
+    @datafim date,
+    @FK_TPSeccao int
+as
+begin
+    SET NOCOUNT ON;
+    insert into camilton.Seccao(
+    nota,
+    DataIni,
+    DataFim,
+    FK_TPSeccao
+    )
+    values(
+    @nota,
+    @dataini,
+    @datafim,
+    @FK_TPSeccao
+    )
+end
 go
 

@@ -17,18 +17,23 @@ Public Class Form1
             MsgBox("FAILED TO OPEN CONNECTION TO DATABASE DUE TO THE FOLLOWING ERROR" + vbCrLf + ex.Message, MsgBoxStyle.Critical, "Connection Test")
         End Try
         If CN.State = ConnectionState.Open Then CN.Close()
+
+        Update()
     End Sub
 
-    Private Sub TabEscr_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabEscr.SelectedIndexChanged
+    Private Overloads Function Update()
         CMD = CN.CreateCommand
-        CMD.CommandText = "SELECT * FROM camilton.getClients();"
+        CMD.CommandText = "SELECT * FROM camilton.getClients();SELECT * FROM camilton.getProdutos();"
+        Dim Aux As SqlCommand = CN.CreateCommand
+        Aux.CommandText = "SELECT * FROM camilton.getProdutos();"
+        Dim Enc As SqlCommand = CN.CreateCommand
+        Enc.CommandText = "SELECT * FROM camilton.getEncomendaComCliente();"
         CN.Open()
 
         Dim RDR As SqlDataReader
         RDR = CMD.ExecuteReader
         list_cli.Items.Clear()
         encCB_clients.Items.Clear()
-        encCB_prod.Items.Clear()
         While RDR.Read
             Dim C As New Cliente
             C.CLienteID = RDR.Item("clienteID")
@@ -37,11 +42,39 @@ Public Class Form1
             C.Endereco = RDR.Item("endereco")
             list_cli.Items.Add(C)
             encCB_clients.Items.Add(RDR.Item("nome"))
+
+        End While
+
+        RDR.Close()
+
+        Dim RDR2 As SqlDataReader
+        RDR2 = Aux.ExecuteReader
+        encCB_prod.Items.Clear()
+        While RDR2.Read
+            encCB_prod.Items.Add(RDR2.Item("prodNome"))
+        End While
+
+        RDR2.Close()
+
+
+        Dim RDRENC As SqlDataReader
+        RDRENC = Enc.ExecuteReader
+        list_Enc.Items.Clear()
+        While RDRENC.Read
+            Dim E As New Encomenda
+            E.ID = RDRENC.Item("id")
+            E.CliNome = RDRENC.Item("cliNome")
+            E.prodNome = RDRENC.Item("prodNome")
+            E.quant = RDRENC.Item("quant")
+            E.price = RDRENC.Item("preco")
+            E.data = RDRENC.Item("data")
+            list_Enc.Items.Add(E)
         End While
 
         CN.Close()
+        Return 0
+    End Function
 
-    End Sub
 
     Private Sub btn_insCli_Click(sender As Object, e As EventArgs) Handles btn_insCli.Click
 
@@ -66,8 +99,10 @@ Public Class Form1
         Catch ex As Exception
             Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
         Finally
+            MsgBox("ACEITE", 0, "Valor introduzido!")
             CN.Close()
         End Try
+        Update()
         CN.Close()
     End Sub
 
@@ -144,14 +179,7 @@ Public Class Form1
             getCli(RDR)
 
         Else
-            CMD = CN.CreateCommand
-            CMD.CommandText = "SELECT * FROM camilton.getClients();"
-            CN.Open()
-
-            Dim RDR As SqlDataReader
-            RDR = CMD.ExecuteReader
-            list_cli.Items.Clear()
-            getCli(RDR)
+            Update()
 
         End If
 
@@ -183,12 +211,73 @@ Public Class Form1
 
         encCB_clients.Items.Clear()
         While RDR.Read
-
             encCB_clients.Items.Add(RDR.Item("nome"))
         End While
 
         CN.Close()
 
     End Sub
+
+    Private Sub btn_addEnc_Click(sender As Object, e As EventArgs) Handles btn_addEnc.Click
+
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insEnc 
+                            @quantidade       = @quant    ,
+                            @envio            = @env      ,
+                            @name             = @nom      ,
+                            @prodName         = @prodNom  "
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@quant", txt_encQuant.Text)
+        CMD.Parameters.AddWithValue("@env", data_EncEnv.Value)
+        CMD.Parameters.AddWithValue("@nom", encCB_clients.SelectedItem.ToString())
+        CMD.Parameters.AddWithValue("@prodNom", encCB_prod.SelectedItem.ToString())
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+            CN.Close()
+        End Try
+        Update()
+        CN.Close()
+    End Sub
+
+    Private Sub btn_checkRem_Click(sender As Object, e As EventArgs) Handles btn_checkRem.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "SELECT * FROM camilton.getEncomenda(" + txt_IDEnc.Text + ");"
+        CN.Open()
+
+        Dim RDR As SqlDataReader
+        RDR = CMD.ExecuteReader
+
+        list_checkEnc.Items.Clear()
+        While RDR.Read
+            list_checkEnc.Items.Add("ID: " + RDR.Item("EncomenID").ToString() + ", Cliente: " + RDR.Item("cliente").ToString() + ", Produto: " + RDR.Item("produto").ToString() + ", Quantidade: " + RDR.Item("quantidade").ToString() + ", Preco total: " + RDR.Item("preco").ToString())
+        End While
+
+        CN.Close()
+    End Sub
+
+    Private Sub btn_RemoveEnc_Click(sender As Object, e As EventArgs) Handles btn_RemoveEnc.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.delEnc " + txt_IDEnc.Text + ";"
+        CN.Open()
+
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            MsgBox("ACEITE", 0, "Valor Removido!")
+            list_checkEnc.Items.Clear()
+
+        End Try
+
+        CN.Close()
+        Update()
+    End Sub
+
 
 End Class

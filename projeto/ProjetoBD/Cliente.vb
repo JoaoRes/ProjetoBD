@@ -46,7 +46,7 @@
     End Property
 
     Overrides Function ToString() As String
-        Return _clienteID & "   " & _Nome & "   " & _contacto & "   " & _endereco
+        Return _clienteID + Chr(9) + _Nome + Chr(9) + Chr(9) + _contacto + Chr(9) + Chr(9) + _endereco
     End Function
 End Class
 

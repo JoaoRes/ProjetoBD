@@ -139,7 +139,7 @@ as
 GO
 
 
-
+select * from 
 
 go 
 Create function camilton.getProdutosComCliente () RETURNS @ProdutoTable TABLE([cliente] varchar(50), [produto] varchar(30))
@@ -262,11 +262,47 @@ as
 	end
 go
 
+go
+create function camilton.getProdutos () RETURNS @ProdutoTable TABLE ([prodNome] varchar(30), [preco] int)
+as
+	begin
+		insert @ProdutoTable
+			select DISTINCT nome, preco
+			from camilton.Produto 
+		Return
+	end
+go
+
+GO
+CREATE FUNCTION camilton.getEncomendaComCliente () RETURNS @Table TABLE ([id] varchar(30),[cliNome] varchar(30), [prodNome] varchar(30), [quant] int, [preco] int, [data] date)
+as
+	begin
+		insert @Table
+			Select camilton.Encomenda.EncomenID, camilton.Cliente.nome, camilton.Produto.nome, camilton.Encomenda.Quantidade, camilton.Encomenda.Quantidade*camilton.Produto.preco, FK_Envio
+			from ((camilton.Encomenda join camilton.Pertence on camilton.Encomenda.EncomenID=camilton.pertence.EncomenID) join camilton.Produto on camilton.Produto.ProductID=camilton.pertence.ProductID) join camilton.Cliente on camilton.Cliente.clienteID=camilton.Encomenda.FK_Cliente 
+		RETURN
+	END
+GO
+
+go 
+create function camilton.getNotas() RETURNS @NOTASTABLE TABLE ([nota] int)
+as
+    begin 
+        insert @NOTASTABLE
+            select camilton.Producao.nota
+            from camilton.Producao
+        return
+    end
+go
 
 
-
-
-
-
-
-
+go
+create function camilton.getSeccao() RETURNS @seccaoTable TABLE([seccao] int, [seccaoVar] varchar(30))
+as
+    begin
+        insert @seccaoTable
+            select *
+            from camilton.TipoSeccao
+        return
+    end
+go
