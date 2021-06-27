@@ -306,3 +306,28 @@ as
         return
     end
 go
+
+GO
+CREATE FUNCTION camilton.getFornecedores() RETURNS @Table TABLE([nome] varchar(30), [contacto] int)
+AS 
+	BEGIN
+		INSERT @Table
+			SELECT nome, contacto
+			from camilton.Fornecedor
+		RETURN
+	END
+GO
+
+GO
+CREATE FUNCTION camilton.getFornecedoresNome(@nome varchar(30)) RETURNS @Table TABLE([nome] varchar(30), [contacto] int)
+AS 
+	BEGIN
+		INSERT @Table
+			SELECT nome, contacto
+			from camilton.Fornecedor
+			where nome like '%'+@nOme+'%'
+		RETURN
+	END
+GO
+
+SELECT * FROM camilton.getFornecedores()

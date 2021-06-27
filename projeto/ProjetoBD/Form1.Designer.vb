@@ -28,12 +28,12 @@ Partial Class Form1
         Me.tabEscr_cli = New System.Windows.Forms.TabPage()
         Me.TabEscrCli = New System.Windows.Forms.TabControl()
         Me.tabEscrCli_search = New System.Windows.Forms.TabPage()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.btn_escrSearch = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.txt_cliCont = New System.Windows.Forms.TextBox()
         Me.txt_cliNome = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.btn_escrSearch = New System.Windows.Forms.Button()
         Me.txt_idcli = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.list_cli = New System.Windows.Forms.ListBox()
@@ -67,13 +67,21 @@ Partial Class Form1
         Me.btn_checkRem = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_IDEnc = New System.Windows.Forms.TextBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.tabMat = New System.Windows.Forms.TabPage()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.tabSearchMat = New System.Windows.Forms.TabPage()
         Me.Btn_PesqMat = New System.Windows.Forms.Button()
         Me.ComboProd = New System.Windows.Forms.ComboBox()
         Me.List_Mat = New System.Windows.Forms.ListBox()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.tabInsMat = New System.Windows.Forms.TabPage()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Cor = New System.Windows.Forms.Label()
+        Me.Referencia = New System.Windows.Forms.Label()
         Me.btn_Aplicacoes = New System.Windows.Forms.Button()
         Me.btn_Palmilhas = New System.Windows.Forms.Button()
         Me.btn_Solas = New System.Windows.Forms.Button()
@@ -91,9 +99,43 @@ Partial Class Form1
         Me.txt_refSola = New System.Windows.Forms.TextBox()
         Me.txt_refPele = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.tabFornecedor = New System.Windows.Forms.TabPage()
+        Me.TabControl4 = New System.Windows.Forms.TabControl()
+        Me.tabFornSearch = New System.Windows.Forms.TabPage()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txt_searchForn = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.list_Fornecedor = New System.Windows.Forms.ListBox()
+        Me.tabDelForn = New System.Windows.Forms.TabPage()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.txt_codForn = New System.Windows.Forms.TextBox()
+        Me.txt_refForn = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Nome = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.txt_nameCont = New System.Windows.Forms.TextBox()
+        Me.txt_nameForn = New System.Windows.Forms.TextBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabControl5 = New System.Windows.Forms.TabControl()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.list_produtos = New System.Windows.Forms.ListBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.txt_priceProduto = New System.Windows.Forms.TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.txt_producaoProduto = New System.Windows.Forms.TextBox()
+        Me.txt_tipoProduto = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.txt_nomeProduto = New System.Windows.Forms.TextBox()
+        Me.txt_IDproduto = New System.Windows.Forms.TextBox()
         Me.tab_fab = New System.Windows.Forms.TabPage()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.tabSeccao = New System.Windows.Forms.TabPage()
         Me.AdiconarSeccao = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -105,14 +147,6 @@ Partial Class Form1
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Referencia = New System.Windows.Forms.Label()
-        Me.Cor = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
         Me.tab1.SuspendLayout()
         Me.tab_escr.SuspendLayout()
         Me.TabEscr.SuspendLayout()
@@ -125,13 +159,21 @@ Partial Class Form1
         Me.tabEscrEnc_add.SuspendLayout()
         Me.tabEscrEnc_check.SuspendLayout()
         Me.tabEncCanc.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
+        Me.tabMat.SuspendLayout()
         Me.TabControl3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
+        Me.tabSearchMat.SuspendLayout()
+        Me.tabInsMat.SuspendLayout()
+        Me.tabFornecedor.SuspendLayout()
+        Me.TabControl4.SuspendLayout()
+        Me.tabFornSearch.SuspendLayout()
+        Me.tabDelForn.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabControl5.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.tab_fab.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.tabSeccao.SuspendLayout()
         Me.SuspendLayout()
         '
         'tab1
@@ -142,7 +184,7 @@ Partial Class Form1
         Me.tab1.Location = New System.Drawing.Point(0, 2)
         Me.tab1.Name = "tab1"
         Me.tab1.SelectedIndex = 0
-        Me.tab1.Size = New System.Drawing.Size(832, 526)
+        Me.tab1.Size = New System.Drawing.Size(839, 529)
         Me.tab1.TabIndex = 2
         '
         'tab_escr
@@ -151,7 +193,7 @@ Partial Class Form1
         Me.tab_escr.Location = New System.Drawing.Point(4, 27)
         Me.tab_escr.Name = "tab_escr"
         Me.tab_escr.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_escr.Size = New System.Drawing.Size(824, 495)
+        Me.tab_escr.Size = New System.Drawing.Size(831, 498)
         Me.tab_escr.TabIndex = 0
         Me.tab_escr.Text = "Escritório"
         Me.tab_escr.UseVisualStyleBackColor = True
@@ -160,7 +202,9 @@ Partial Class Form1
         '
         Me.TabEscr.Controls.Add(Me.tabEscr_cli)
         Me.TabEscr.Controls.Add(Me.tabEscrEnc)
-        Me.TabEscr.Controls.Add(Me.TabPage3)
+        Me.TabEscr.Controls.Add(Me.tabMat)
+        Me.TabEscr.Controls.Add(Me.tabFornecedor)
+        Me.TabEscr.Controls.Add(Me.TabPage1)
         Me.TabEscr.Location = New System.Drawing.Point(-4, 3)
         Me.TabEscr.Name = "TabEscr"
         Me.TabEscr.SelectedIndex = 0
@@ -190,12 +234,12 @@ Partial Class Form1
         '
         'tabEscrCli_search
         '
-        Me.tabEscrCli_search.Controls.Add(Me.Label10)
-        Me.tabEscrCli_search.Controls.Add(Me.btn_escrSearch)
-        Me.tabEscrCli_search.Controls.Add(Me.Label9)
         Me.tabEscrCli_search.Controls.Add(Me.Label8)
+        Me.tabEscrCli_search.Controls.Add(Me.Label9)
         Me.tabEscrCli_search.Controls.Add(Me.txt_cliCont)
         Me.tabEscrCli_search.Controls.Add(Me.txt_cliNome)
+        Me.tabEscrCli_search.Controls.Add(Me.Label10)
+        Me.tabEscrCli_search.Controls.Add(Me.btn_escrSearch)
         Me.tabEscrCli_search.Controls.Add(Me.txt_idcli)
         Me.tabEscrCli_search.Controls.Add(Me.Label2)
         Me.tabEscrCli_search.Controls.Add(Me.list_cli)
@@ -206,6 +250,38 @@ Partial Class Form1
         Me.tabEscrCli_search.TabIndex = 0
         Me.tabEscrCli_search.Text = "Pesquisa"
         Me.tabEscrCli_search.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(574, 215)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(56, 15)
+        Me.Label8.TabIndex = 22
+        Me.Label8.Text = "Contacto"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(574, 125)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(40, 15)
+        Me.Label9.TabIndex = 21
+        Me.Label9.Text = "Nome"
+        '
+        'txt_cliCont
+        '
+        Me.txt_cliCont.Location = New System.Drawing.Point(573, 236)
+        Me.txt_cliCont.Name = "txt_cliCont"
+        Me.txt_cliCont.Size = New System.Drawing.Size(100, 23)
+        Me.txt_cliCont.TabIndex = 20
+        '
+        'txt_cliNome
+        '
+        Me.txt_cliNome.Location = New System.Drawing.Point(573, 146)
+        Me.txt_cliNome.Name = "txt_cliNome"
+        Me.txt_cliNome.Size = New System.Drawing.Size(100, 23)
+        Me.txt_cliNome.TabIndex = 19
         '
         'Label10
         '
@@ -218,44 +294,12 @@ Partial Class Form1
         '
         'btn_escrSearch
         '
-        Me.btn_escrSearch.Location = New System.Drawing.Point(574, 319)
+        Me.btn_escrSearch.Location = New System.Drawing.Point(573, 313)
         Me.btn_escrSearch.Name = "btn_escrSearch"
         Me.btn_escrSearch.Size = New System.Drawing.Size(99, 25)
         Me.btn_escrSearch.TabIndex = 7
         Me.btn_escrSearch.Text = "Pesquisar"
         Me.btn_escrSearch.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(574, 219)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 15)
-        Me.Label9.TabIndex = 6
-        Me.Label9.Text = "Contacto"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(574, 129)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 15)
-        Me.Label8.TabIndex = 5
-        Me.Label8.Text = "Nome"
-        '
-        'txt_cliCont
-        '
-        Me.txt_cliCont.Location = New System.Drawing.Point(573, 240)
-        Me.txt_cliCont.Name = "txt_cliCont"
-        Me.txt_cliCont.Size = New System.Drawing.Size(100, 23)
-        Me.txt_cliCont.TabIndex = 4
-        '
-        'txt_cliNome
-        '
-        Me.txt_cliNome.Location = New System.Drawing.Point(573, 150)
-        Me.txt_cliNome.Name = "txt_cliNome"
-        Me.txt_cliNome.Size = New System.Drawing.Size(100, 23)
-        Me.txt_cliNome.TabIndex = 3
         '
         'txt_idcli
         '
@@ -269,9 +313,9 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(573, 42)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 15)
+        Me.Label2.Size = New System.Drawing.Size(56, 15)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "ID do Cliente"
+        Me.Label2.Text = "ID cliente"
         '
         'list_cli
         '
@@ -570,39 +614,39 @@ Partial Class Form1
         Me.txt_IDEnc.Size = New System.Drawing.Size(100, 23)
         Me.txt_IDEnc.TabIndex = 11
         '
-        'TabPage3
+        'tabMat
         '
-        Me.TabPage3.Controls.Add(Me.TabControl3)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(824, 467)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "TabPage3"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.tabMat.Controls.Add(Me.TabControl3)
+        Me.tabMat.Location = New System.Drawing.Point(4, 24)
+        Me.tabMat.Name = "tabMat"
+        Me.tabMat.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabMat.Size = New System.Drawing.Size(824, 467)
+        Me.tabMat.TabIndex = 2
+        Me.tabMat.Text = "Materiais"
+        Me.tabMat.UseVisualStyleBackColor = True
         '
         'TabControl3
         '
-        Me.TabControl3.Controls.Add(Me.TabPage4)
-        Me.TabControl3.Controls.Add(Me.TabPage5)
-        Me.TabControl3.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl3.Controls.Add(Me.tabSearchMat)
+        Me.TabControl3.Controls.Add(Me.tabInsMat)
+        Me.TabControl3.Location = New System.Drawing.Point(-4, 0)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(824, 464)
+        Me.TabControl3.Size = New System.Drawing.Size(828, 464)
         Me.TabControl3.TabIndex = 0
         '
-        'TabPage4
+        'tabSearchMat
         '
-        Me.TabPage4.Controls.Add(Me.Btn_PesqMat)
-        Me.TabPage4.Controls.Add(Me.ComboProd)
-        Me.TabPage4.Controls.Add(Me.List_Mat)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(816, 436)
-        Me.TabPage4.TabIndex = 0
-        Me.TabPage4.Text = "TabPage4"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        Me.tabSearchMat.Controls.Add(Me.Btn_PesqMat)
+        Me.tabSearchMat.Controls.Add(Me.ComboProd)
+        Me.tabSearchMat.Controls.Add(Me.List_Mat)
+        Me.tabSearchMat.Location = New System.Drawing.Point(4, 24)
+        Me.tabSearchMat.Name = "tabSearchMat"
+        Me.tabSearchMat.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabSearchMat.Size = New System.Drawing.Size(820, 436)
+        Me.tabSearchMat.TabIndex = 0
+        Me.tabSearchMat.Text = "Pesquisa"
+        Me.tabSearchMat.UseVisualStyleBackColor = True
         '
         'Btn_PesqMat
         '
@@ -630,40 +674,112 @@ Partial Class Form1
         Me.List_Mat.Size = New System.Drawing.Size(389, 364)
         Me.List_Mat.TabIndex = 0
         '
-        'TabPage5
+        'tabInsMat
         '
-        Me.TabPage5.Controls.Add(Me.Label30)
-        Me.TabPage5.Controls.Add(Me.Label29)
-        Me.TabPage5.Controls.Add(Me.Label28)
-        Me.TabPage5.Controls.Add(Me.Label27)
-        Me.TabPage5.Controls.Add(Me.Label26)
-        Me.TabPage5.Controls.Add(Me.Label25)
-        Me.TabPage5.Controls.Add(Me.Cor)
-        Me.TabPage5.Controls.Add(Me.Referencia)
-        Me.TabPage5.Controls.Add(Me.btn_Aplicacoes)
-        Me.TabPage5.Controls.Add(Me.btn_Palmilhas)
-        Me.TabPage5.Controls.Add(Me.btn_Solas)
-        Me.TabPage5.Controls.Add(Me.btn_Pele)
-        Me.TabPage5.Controls.Add(Me.Label18)
-        Me.TabPage5.Controls.Add(Me.Label17)
-        Me.TabPage5.Controls.Add(Me.Label14)
-        Me.TabPage5.Controls.Add(Me.Pele)
-        Me.TabPage5.Controls.Add(Me.txt_tipoAplicacoes)
-        Me.TabPage5.Controls.Add(Me.txt_tamanhoPalmilhas)
-        Me.TabPage5.Controls.Add(Me.txt_refAplicacoes)
-        Me.TabPage5.Controls.Add(Me.txt_refPalmilhas)
-        Me.TabPage5.Controls.Add(Me.txt_tamanhoSola)
-        Me.TabPage5.Controls.Add(Me.txt_corPele)
-        Me.TabPage5.Controls.Add(Me.txt_refSola)
-        Me.TabPage5.Controls.Add(Me.txt_refPele)
-        Me.TabPage5.Controls.Add(Me.Label15)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(816, 436)
-        Me.TabPage5.TabIndex = 1
-        Me.TabPage5.Text = "TabPage5"
-        Me.TabPage5.UseVisualStyleBackColor = True
+        Me.tabInsMat.Controls.Add(Me.Label30)
+        Me.tabInsMat.Controls.Add(Me.Label29)
+        Me.tabInsMat.Controls.Add(Me.Label28)
+        Me.tabInsMat.Controls.Add(Me.Label27)
+        Me.tabInsMat.Controls.Add(Me.Label26)
+        Me.tabInsMat.Controls.Add(Me.Label25)
+        Me.tabInsMat.Controls.Add(Me.Cor)
+        Me.tabInsMat.Controls.Add(Me.Referencia)
+        Me.tabInsMat.Controls.Add(Me.btn_Aplicacoes)
+        Me.tabInsMat.Controls.Add(Me.btn_Palmilhas)
+        Me.tabInsMat.Controls.Add(Me.btn_Solas)
+        Me.tabInsMat.Controls.Add(Me.btn_Pele)
+        Me.tabInsMat.Controls.Add(Me.Label18)
+        Me.tabInsMat.Controls.Add(Me.Label17)
+        Me.tabInsMat.Controls.Add(Me.Label14)
+        Me.tabInsMat.Controls.Add(Me.Pele)
+        Me.tabInsMat.Controls.Add(Me.txt_tipoAplicacoes)
+        Me.tabInsMat.Controls.Add(Me.txt_tamanhoPalmilhas)
+        Me.tabInsMat.Controls.Add(Me.txt_refAplicacoes)
+        Me.tabInsMat.Controls.Add(Me.txt_refPalmilhas)
+        Me.tabInsMat.Controls.Add(Me.txt_tamanhoSola)
+        Me.tabInsMat.Controls.Add(Me.txt_corPele)
+        Me.tabInsMat.Controls.Add(Me.txt_refSola)
+        Me.tabInsMat.Controls.Add(Me.txt_refPele)
+        Me.tabInsMat.Controls.Add(Me.Label15)
+        Me.tabInsMat.Location = New System.Drawing.Point(4, 24)
+        Me.tabInsMat.Name = "tabInsMat"
+        Me.tabInsMat.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabInsMat.Size = New System.Drawing.Size(820, 436)
+        Me.tabInsMat.TabIndex = 1
+        Me.tabInsMat.Text = "Inserir"
+        Me.tabInsMat.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(173, 266)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(30, 15)
+        Me.Label30.TabIndex = 41
+        Me.Label30.Text = "Tipo"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(23, 267)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(62, 15)
+        Me.Label29.TabIndex = 40
+        Me.Label29.Text = "Referencia"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(173, 196)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(56, 15)
+        Me.Label28.TabIndex = 39
+        Me.Label28.Text = "Tamanho"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(23, 196)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(62, 15)
+        Me.Label27.TabIndex = 38
+        Me.Label27.Text = "Referencia"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(173, 128)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(56, 15)
+        Me.Label26.TabIndex = 37
+        Me.Label26.Text = "Tamanho"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(23, 128)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(62, 15)
+        Me.Label25.TabIndex = 36
+        Me.Label25.Text = "Referencia"
+        '
+        'Cor
+        '
+        Me.Cor.AutoSize = True
+        Me.Cor.Location = New System.Drawing.Point(173, 55)
+        Me.Cor.Name = "Cor"
+        Me.Cor.Size = New System.Drawing.Size(26, 15)
+        Me.Cor.TabIndex = 35
+        Me.Cor.Text = "Cor"
+        '
+        'Referencia
+        '
+        Me.Referencia.AutoSize = True
+        Me.Referencia.Location = New System.Drawing.Point(23, 55)
+        Me.Referencia.Name = "Referencia"
+        Me.Referencia.Size = New System.Drawing.Size(62, 15)
+        Me.Referencia.TabIndex = 34
+        Me.Referencia.Text = "Referencia"
         '
         'btn_Aplicacoes
         '
@@ -802,44 +918,366 @@ Partial Class Form1
         Me.Label15.TabIndex = 17
         Me.Label15.Text = "Adicionar Novo Material"
         '
+        'tabFornecedor
+        '
+        Me.tabFornecedor.Controls.Add(Me.TabControl4)
+        Me.tabFornecedor.Location = New System.Drawing.Point(4, 24)
+        Me.tabFornecedor.Name = "tabFornecedor"
+        Me.tabFornecedor.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabFornecedor.Size = New System.Drawing.Size(824, 467)
+        Me.tabFornecedor.TabIndex = 3
+        Me.tabFornecedor.Text = "Fornecedor"
+        Me.tabFornecedor.UseVisualStyleBackColor = True
+        '
+        'TabControl4
+        '
+        Me.TabControl4.Controls.Add(Me.tabFornSearch)
+        Me.TabControl4.Controls.Add(Me.tabDelForn)
+        Me.TabControl4.Location = New System.Drawing.Point(0, 3)
+        Me.TabControl4.Name = "TabControl4"
+        Me.TabControl4.SelectedIndex = 0
+        Me.TabControl4.Size = New System.Drawing.Size(828, 468)
+        Me.TabControl4.TabIndex = 0
+        '
+        'tabFornSearch
+        '
+        Me.tabFornSearch.Controls.Add(Me.Label23)
+        Me.tabFornSearch.Controls.Add(Me.Button1)
+        Me.tabFornSearch.Controls.Add(Me.txt_searchForn)
+        Me.tabFornSearch.Controls.Add(Me.Label32)
+        Me.tabFornSearch.Controls.Add(Me.list_Fornecedor)
+        Me.tabFornSearch.Location = New System.Drawing.Point(4, 24)
+        Me.tabFornSearch.Name = "tabFornSearch"
+        Me.tabFornSearch.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabFornSearch.Size = New System.Drawing.Size(820, 440)
+        Me.tabFornSearch.TabIndex = 0
+        Me.tabFornSearch.Text = "Pesquisa"
+        Me.tabFornSearch.UseVisualStyleBackColor = True
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(664, 10)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(39, 15)
+        Me.Label23.TabIndex = 17
+        Me.Label23.Text = "Filtros"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(580, 134)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(99, 25)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Pesquisar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txt_searchForn
+        '
+        Me.txt_searchForn.Location = New System.Drawing.Point(580, 56)
+        Me.txt_searchForn.Name = "txt_searchForn"
+        Me.txt_searchForn.Size = New System.Drawing.Size(100, 23)
+        Me.txt_searchForn.TabIndex = 10
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(580, 38)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(103, 15)
+        Me.Label32.TabIndex = 11
+        Me.Label32.Text = "Nome Fornecedor"
+        '
+        'list_Fornecedor
+        '
+        Me.list_Fornecedor.FormattingEnabled = True
+        Me.list_Fornecedor.ItemHeight = 15
+        Me.list_Fornecedor.Location = New System.Drawing.Point(15, 23)
+        Me.list_Fornecedor.Name = "list_Fornecedor"
+        Me.list_Fornecedor.Size = New System.Drawing.Size(559, 394)
+        Me.list_Fornecedor.TabIndex = 9
+        '
+        'tabDelForn
+        '
+        Me.tabDelForn.Controls.Add(Me.Label31)
+        Me.tabDelForn.Controls.Add(Me.Label33)
+        Me.tabDelForn.Controls.Add(Me.txt_codForn)
+        Me.tabDelForn.Controls.Add(Me.txt_refForn)
+        Me.tabDelForn.Controls.Add(Me.Label24)
+        Me.tabDelForn.Controls.Add(Me.Nome)
+        Me.tabDelForn.Controls.Add(Me.Button2)
+        Me.tabDelForn.Controls.Add(Me.txt_nameCont)
+        Me.tabDelForn.Controls.Add(Me.txt_nameForn)
+        Me.tabDelForn.Location = New System.Drawing.Point(4, 24)
+        Me.tabDelForn.Name = "tabDelForn"
+        Me.tabDelForn.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabDelForn.Size = New System.Drawing.Size(820, 440)
+        Me.tabDelForn.TabIndex = 1
+        Me.tabDelForn.Text = "Adicionar"
+        Me.tabDelForn.UseVisualStyleBackColor = True
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(338, 203)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(100, 15)
+        Me.Label31.TabIndex = 44
+        Me.Label31.Text = "Codigo Categoria"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(188, 203)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(108, 15)
+        Me.Label33.TabIndex = 43
+        Me.Label33.Text = "Referencia Material"
+        '
+        'txt_codForn
+        '
+        Me.txt_codForn.Location = New System.Drawing.Point(338, 219)
+        Me.txt_codForn.Name = "txt_codForn"
+        Me.txt_codForn.Size = New System.Drawing.Size(100, 23)
+        Me.txt_codForn.TabIndex = 42
+        '
+        'txt_refForn
+        '
+        Me.txt_refForn.Location = New System.Drawing.Point(188, 219)
+        Me.txt_refForn.Name = "txt_refForn"
+        Me.txt_refForn.Size = New System.Drawing.Size(100, 23)
+        Me.txt_refForn.TabIndex = 41
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(338, 94)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(56, 15)
+        Me.Label24.TabIndex = 40
+        Me.Label24.Text = "Contacto"
+        '
+        'Nome
+        '
+        Me.Nome.AutoSize = True
+        Me.Nome.Location = New System.Drawing.Point(188, 94)
+        Me.Nome.Name = "Nome"
+        Me.Nome.Size = New System.Drawing.Size(40, 15)
+        Me.Nome.TabIndex = 39
+        Me.Nome.Text = "Nome"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(483, 219)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(144, 23)
+        Me.Button2.TabIndex = 38
+        Me.Button2.Text = "Adicionar Fornecedor"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'txt_nameCont
+        '
+        Me.txt_nameCont.Location = New System.Drawing.Point(338, 110)
+        Me.txt_nameCont.Name = "txt_nameCont"
+        Me.txt_nameCont.Size = New System.Drawing.Size(100, 23)
+        Me.txt_nameCont.TabIndex = 37
+        '
+        'txt_nameForn
+        '
+        Me.txt_nameForn.Location = New System.Drawing.Point(188, 110)
+        Me.txt_nameForn.Name = "txt_nameForn"
+        Me.txt_nameForn.Size = New System.Drawing.Size(100, 23)
+        Me.txt_nameForn.TabIndex = 36
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.TabControl5)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(824, 467)
+        Me.TabPage1.TabIndex = 4
+        Me.TabPage1.Text = "Produto"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabControl5
+        '
+        Me.TabControl5.Controls.Add(Me.TabPage2)
+        Me.TabControl5.Controls.Add(Me.TabPage3)
+        Me.TabControl5.Location = New System.Drawing.Point(-2, -1)
+        Me.TabControl5.Name = "TabControl5"
+        Me.TabControl5.SelectedIndex = 0
+        Me.TabControl5.Size = New System.Drawing.Size(828, 468)
+        Me.TabControl5.TabIndex = 1
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.list_produtos)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(820, 440)
+        Me.TabPage2.TabIndex = 0
+        Me.TabPage2.Text = "Pesquisa"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'list_produtos
+        '
+        Me.list_produtos.FormattingEnabled = True
+        Me.list_produtos.ItemHeight = 15
+        Me.list_produtos.Location = New System.Drawing.Point(15, 23)
+        Me.list_produtos.Name = "list_produtos"
+        Me.list_produtos.Size = New System.Drawing.Size(559, 394)
+        Me.list_produtos.TabIndex = 9
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.Label34)
+        Me.TabPage3.Controls.Add(Me.txt_priceProduto)
+        Me.TabPage3.Controls.Add(Me.Label36)
+        Me.TabPage3.Controls.Add(Me.Label37)
+        Me.TabPage3.Controls.Add(Me.txt_producaoProduto)
+        Me.TabPage3.Controls.Add(Me.txt_tipoProduto)
+        Me.TabPage3.Controls.Add(Me.Label38)
+        Me.TabPage3.Controls.Add(Me.Label39)
+        Me.TabPage3.Controls.Add(Me.Button4)
+        Me.TabPage3.Controls.Add(Me.txt_nomeProduto)
+        Me.TabPage3.Controls.Add(Me.txt_IDproduto)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(820, 440)
+        Me.TabPage3.TabIndex = 1
+        Me.TabPage3.Text = "Adicionar"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(483, 92)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(37, 15)
+        Me.Label34.TabIndex = 46
+        Me.Label34.Text = "Preço"
+        '
+        'txt_priceProduto
+        '
+        Me.txt_priceProduto.Location = New System.Drawing.Point(483, 110)
+        Me.txt_priceProduto.Name = "txt_priceProduto"
+        Me.txt_priceProduto.Size = New System.Drawing.Size(100, 23)
+        Me.txt_priceProduto.TabIndex = 45
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(338, 201)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(58, 15)
+        Me.Label36.TabIndex = 44
+        Me.Label36.Text = "Producao"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(188, 201)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(30, 15)
+        Me.Label37.TabIndex = 43
+        Me.Label37.Text = "Tipo"
+        '
+        'txt_producaoProduto
+        '
+        Me.txt_producaoProduto.Location = New System.Drawing.Point(338, 219)
+        Me.txt_producaoProduto.Name = "txt_producaoProduto"
+        Me.txt_producaoProduto.Size = New System.Drawing.Size(100, 23)
+        Me.txt_producaoProduto.TabIndex = 42
+        '
+        'txt_tipoProduto
+        '
+        Me.txt_tipoProduto.Location = New System.Drawing.Point(188, 219)
+        Me.txt_tipoProduto.Name = "txt_tipoProduto"
+        Me.txt_tipoProduto.Size = New System.Drawing.Size(100, 23)
+        Me.txt_tipoProduto.TabIndex = 41
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(338, 92)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(40, 15)
+        Me.Label38.TabIndex = 40
+        Me.Label38.Text = "Nome"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(188, 92)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(64, 15)
+        Me.Label39.TabIndex = 39
+        Me.Label39.Text = "ID produto"
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(483, 219)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(144, 23)
+        Me.Button4.TabIndex = 38
+        Me.Button4.Text = "Adicionar Produto"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'txt_nomeProduto
+        '
+        Me.txt_nomeProduto.Location = New System.Drawing.Point(338, 110)
+        Me.txt_nomeProduto.Name = "txt_nomeProduto"
+        Me.txt_nomeProduto.Size = New System.Drawing.Size(100, 23)
+        Me.txt_nomeProduto.TabIndex = 37
+        '
+        'txt_IDproduto
+        '
+        Me.txt_IDproduto.Location = New System.Drawing.Point(188, 110)
+        Me.txt_IDproduto.Name = "txt_IDproduto"
+        Me.txt_IDproduto.Size = New System.Drawing.Size(100, 23)
+        Me.txt_IDproduto.TabIndex = 36
+        '
         'tab_fab
         '
         Me.tab_fab.Controls.Add(Me.TabControl1)
         Me.tab_fab.Location = New System.Drawing.Point(4, 27)
         Me.tab_fab.Name = "tab_fab"
         Me.tab_fab.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_fab.Size = New System.Drawing.Size(824, 495)
+        Me.tab_fab.Size = New System.Drawing.Size(831, 498)
         Me.tab_fab.TabIndex = 1
         Me.tab_fab.Text = "Fábrica"
         Me.tab_fab.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.tabSeccao)
         Me.TabControl1.Location = New System.Drawing.Point(-4, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(832, 499)
         Me.TabControl1.TabIndex = 0
         '
-        'TabPage1
+        'tabSeccao
         '
-        Me.TabPage1.Controls.Add(Me.AdiconarSeccao)
-        Me.TabPage1.Controls.Add(Me.Label19)
-        Me.TabPage1.Controls.Add(Me.Label20)
-        Me.TabPage1.Controls.Add(Me.Label21)
-        Me.TabPage1.Controls.Add(Me.Label22)
-        Me.TabPage1.Controls.Add(Me.ComboBox2)
-        Me.TabPage1.Controls.Add(Me.DateTimePicker2)
-        Me.TabPage1.Controls.Add(Me.DateTimePicker1)
-        Me.TabPage1.Controls.Add(Me.ComboBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(824, 471)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.tabSeccao.Controls.Add(Me.AdiconarSeccao)
+        Me.tabSeccao.Controls.Add(Me.Label19)
+        Me.tabSeccao.Controls.Add(Me.Label20)
+        Me.tabSeccao.Controls.Add(Me.Label21)
+        Me.tabSeccao.Controls.Add(Me.Label22)
+        Me.tabSeccao.Controls.Add(Me.ComboBox2)
+        Me.tabSeccao.Controls.Add(Me.DateTimePicker2)
+        Me.tabSeccao.Controls.Add(Me.DateTimePicker1)
+        Me.tabSeccao.Controls.Add(Me.ComboBox1)
+        Me.tabSeccao.Location = New System.Drawing.Point(4, 24)
+        Me.tabSeccao.Name = "tabSeccao"
+        Me.tabSeccao.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabSeccao.Size = New System.Drawing.Size(824, 471)
+        Me.tabSeccao.TabIndex = 0
+        Me.tabSeccao.Text = "Produção"
+        Me.tabSeccao.UseVisualStyleBackColor = True
         '
         'AdiconarSeccao
         '
@@ -934,78 +1372,6 @@ Partial Class Form1
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Numero Nota"
         '
-        'Referencia
-        '
-        Me.Referencia.AutoSize = True
-        Me.Referencia.Location = New System.Drawing.Point(23, 55)
-        Me.Referencia.Name = "Referencia"
-        Me.Referencia.Size = New System.Drawing.Size(62, 15)
-        Me.Referencia.TabIndex = 34
-        Me.Referencia.Text = "Referencia"
-        '
-        'Cor
-        '
-        Me.Cor.AutoSize = True
-        Me.Cor.Location = New System.Drawing.Point(173, 55)
-        Me.Cor.Name = "Cor"
-        Me.Cor.Size = New System.Drawing.Size(26, 15)
-        Me.Cor.TabIndex = 35
-        Me.Cor.Text = "Cor"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(23, 128)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(62, 15)
-        Me.Label25.TabIndex = 36
-        Me.Label25.Text = "Referencia"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(173, 128)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(56, 15)
-        Me.Label26.TabIndex = 37
-        Me.Label26.Text = "Tamanho"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(23, 196)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(62, 15)
-        Me.Label27.TabIndex = 38
-        Me.Label27.Text = "Referencia"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(173, 196)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(56, 15)
-        Me.Label28.TabIndex = 39
-        Me.Label28.Text = "Tamanho"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(23, 267)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(62, 15)
-        Me.Label29.TabIndex = 40
-        Me.Label29.Text = "Referencia"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(173, 266)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(30, 15)
-        Me.Label30.TabIndex = 41
-        Me.Label30.Text = "Tipo"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1030,15 +1396,26 @@ Partial Class Form1
         Me.tabEscrEnc_check.ResumeLayout(False)
         Me.tabEncCanc.ResumeLayout(False)
         Me.tabEncCanc.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
+        Me.tabMat.ResumeLayout(False)
         Me.TabControl3.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
+        Me.tabSearchMat.ResumeLayout(False)
+        Me.tabInsMat.ResumeLayout(False)
+        Me.tabInsMat.PerformLayout()
+        Me.tabFornecedor.ResumeLayout(False)
+        Me.TabControl4.ResumeLayout(False)
+        Me.tabFornSearch.ResumeLayout(False)
+        Me.tabFornSearch.PerformLayout()
+        Me.tabDelForn.ResumeLayout(False)
+        Me.tabDelForn.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabControl5.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.tab_fab.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
+        Me.tabSeccao.ResumeLayout(False)
+        Me.tabSeccao.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1050,7 +1427,7 @@ Partial Class Form1
     Friend WithEvents tabEscrEnc As TabPage
     Friend WithEvents tab_fab As TabPage
     Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents tabSeccao As TabPage
     Friend WithEvents Label1 As Label
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents TabControl2 As TabControl
@@ -1062,10 +1439,6 @@ Partial Class Form1
     Friend WithEvents tabEscrCli_search As TabPage
     Friend WithEvents Label10 As Label
     Friend WithEvents btn_escrSearch As Button
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents txt_cliCont As TextBox
-    Friend WithEvents txt_cliNome As TextBox
     Friend WithEvents txt_idcli As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents list_cli As ListBox
@@ -1093,13 +1466,13 @@ Partial Class Form1
     Friend WithEvents Label16 As Label
     Friend WithEvents txt_IDEnc As TextBox
     Friend WithEvents btn_RemoveEnc As Button
-    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents tabMat As TabPage
     Friend WithEvents TabControl3 As TabControl
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents tabSearchMat As TabPage
     Friend WithEvents Btn_PesqMat As Button
     Friend WithEvents ComboProd As ComboBox
     Friend WithEvents List_Mat As ListBox
-    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents tabInsMat As TabPage
     Friend WithEvents btn_Aplicacoes As Button
     Friend WithEvents btn_Palmilhas As Button
     Friend WithEvents btn_Solas As Button
@@ -1134,4 +1507,42 @@ Partial Class Form1
     Friend WithEvents Label25 As Label
     Friend WithEvents Cor As Label
     Friend WithEvents Referencia As Label
+    Friend WithEvents tabFornecedor As TabPage
+    Friend WithEvents TabControl4 As TabControl
+    Friend WithEvents tabFornSearch As TabPage
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txt_searchForn As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents list_Fornecedor As ListBox
+    Friend WithEvents tabDelForn As TabPage
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txt_cliCont As TextBox
+    Friend WithEvents txt_cliNome As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Nome As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents txt_nameCont As TextBox
+    Friend WithEvents txt_nameForn As TextBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents txt_codForn As TextBox
+    Friend WithEvents txt_refForn As TextBox
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabControl5 As TabControl
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents list_produtos As ListBox
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents Label34 As Label
+    Friend WithEvents txt_priceProduto As TextBox
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Label37 As Label
+    Friend WithEvents txt_producaoProduto As TextBox
+    Friend WithEvents txt_tipoProduto As TextBox
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Button4 As Button
+    Friend WithEvents txt_nomeProduto As TextBox
+    Friend WithEvents txt_IDproduto As TextBox
 End Class

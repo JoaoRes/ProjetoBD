@@ -31,6 +31,7 @@ END
 
 GO
 
+
 GO
 CREATE PROC camilton.insEnc
 		@quantidade                     INT,
@@ -107,12 +108,15 @@ update camilton.Encomenda set ProntoEnv = 0 where ProntoEnv = 1
 select camilton.Producao.nota, ProntoEnv, DataFim from (camilton.Encomenda  JOIN camilton.Requer ON camilton.Encomenda.EncomenID=camilton.Requer.EncomenID) JOIN camilton.Producao on camilton.Requer.Nota = camilton.Producao.nota
 */
 
-
+select * from camilton.Encomenda
 
 go
 create proc camilton.delEnc @encomenID as INT
 as
 begin
+	DECLARE @nota int
+	SELECT @nota=nota from camilton.Requer where camilton.Requer.EncomenID = @encomenID;
+	delete camilton.Producao where camilton.Producao.nota = @nota
     delete camilton.Requer where camilton.Requer.EncomenID = @encomenID;
 	delete camilton.Pertence where camilton.Pertence.EncomenID=@encomenID;
 	delete camilton.Encomenda where camilton.Encomenda.EncomenID=@encomenID;

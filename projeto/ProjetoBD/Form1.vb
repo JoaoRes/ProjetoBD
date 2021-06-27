@@ -28,6 +28,10 @@ Public Class Form1
         Aux.CommandText = "SELECT * FROM camilton.getProdutos();"
         Dim Enc As SqlCommand = CN.CreateCommand
         Enc.CommandText = "SELECT * FROM camilton.getEncomendaComCliente();"
+        Dim Forn As SqlCommand = CN.CreateCommand
+        Forn.CommandText = "SELECT * FROM camilton.getFornecedores();"
+        Dim Prod As SqlCommand = CN.CreateCommand
+        Prod.CommandText = "SELECT * FROM camilton.getProdutos();"
         CN.Open()
 
         Dim RDR As SqlDataReader
@@ -50,8 +54,10 @@ Public Class Form1
         Dim RDR2 As SqlDataReader
         RDR2 = Aux.ExecuteReader
         encCB_prod.Items.Clear()
+        list_produtos.Items.Clear()
         While RDR2.Read
             encCB_prod.Items.Add(RDR2.Item("prodNome"))
+            list_produtos.Items.Add("Nome: " + RDR2.Item("prodNome").ToString() + ", Preco: " + RDR2.Item("preco").ToString())
         End While
 
         RDR2.Close()
@@ -70,6 +76,18 @@ Public Class Form1
             E.data = RDRENC.Item("data")
             list_Enc.Items.Add(E)
         End While
+
+        RDRENC.Close()
+
+        Dim RDRForn As SqlDataReader
+        RDRForn = Forn.ExecuteReader
+
+        list_Fornecedor.Items.Clear()
+        While RDRForn.Read
+            list_Fornecedor.Items.Add("Nome: " + RDRForn.Item("nome").ToString() + ", Contacto: " + RDRForn.Item("contacto").ToString())
+        End While
+
+
 
         CN.Close()
         Return 0
@@ -295,9 +313,6 @@ Public Class Form1
 
     End Sub
 
-    Private Sub TabEscrCli_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabEscrCli.SelectedIndexChanged
-
-    End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.Click
 
@@ -337,9 +352,10 @@ Public Class Form1
             MsgBox("ACEITE", 0, "Valor introduzido!")
         End Try
         CN.Close()
+        Update()
     End Sub
 
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles tabSeccao.Click
 
     End Sub
 
@@ -392,6 +408,7 @@ Public Class Form1
             MsgBox("ACEITE", 0, "Valor introduzido!")
         End Try
         CN.Close()
+        Update()
     End Sub
 
     Private Sub btn_Solas_Click(sender As Object, e As EventArgs) Handles btn_Solas.Click
@@ -413,6 +430,7 @@ Public Class Form1
             MsgBox("ACEITE", 0, "Valor introduzido!")
         End Try
         CN.Close()
+        Update()
     End Sub
 
     Private Sub btn_Palmilhas_Click(sender As Object, e As EventArgs) Handles btn_Palmilhas.Click
@@ -434,6 +452,7 @@ Public Class Form1
             MsgBox("ACEITE", 0, "Valor introduzido!")
         End Try
         CN.Close()
+        Update()
     End Sub
 
     Private Sub btn_Aplicacoes_Click(sender As Object, e As EventArgs) Handles btn_Aplicacoes.Click
@@ -455,6 +474,82 @@ Public Class Form1
             MsgBox("ACEITE", 0, "Valor introduzido!")
         End Try
         CN.Close()
+        Update()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insForn
+                            @name             = @nom      ,
+                            @contacto         = @cont     ,
+                            @material         = @mat      ,
+                            @catFor           = @cat "
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@nom", txt_nameForn.Text)
+        CMD.Parameters.AddWithValue("@cont", txt_nameCont.Text)
+        CMD.Parameters.AddWithValue("@mat", txt_refForn.Text)
+        CMD.Parameters.AddWithValue("@cat", txt_codForn.Text)
+
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+        Update()
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        If String.IsNullOrEmpty(txt_searchForn.Text) Then
+            Update()
+        Else
+            CMD = CN.CreateCommand
+            CMD.CommandText = "SELECT * FROM camilton.getFornecedoresNome('" + txt_searchForn.Text + "');"
+            CN.Open()
+
+            Dim RDR As SqlDataReader
+            RDR = CMD.ExecuteReader
+
+            list_Fornecedor.Items.Clear()
+            While RDR.Read
+                list_Fornecedor.Items.Add("Nome: " + RDR.Item("nome").ToString() + ", Contacto: " + RDR.Item("contacto").ToString())
+            End While
+
+        End If
+
+        CN.Close()
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        CMD = CN.CreateCommand
+        CMD.CommandText = "exec camilton.insProd
+                            @prodID             = @id      ,
+                            @name               = @nom     ,
+                            @typeProd           = @tipo      ,
+                            @producao           = @prod    ,
+                            @price              = @preco"
+        CMD.Parameters.Clear()
+        CMD.Parameters.AddWithValue("@id", txt_IDproduto.Text)
+        CMD.Parameters.AddWithValue("@nom", txt_nomeProduto.Text)
+        CMD.Parameters.AddWithValue("@tipo", txt_tipoProduto.Text)
+        CMD.Parameters.AddWithValue("@prod", txt_producaoProduto.Text)
+        CMD.Parameters.AddWithValue("@preco", txt_priceProduto.Text)
+
+        CN.Open()
+        Try
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Failed to update contact in database. " & vbCrLf & "ERROR MESSAGE: " & vbCrLf & ex.Message)
+        Finally
+            CN.Close()
+            MsgBox("ACEITE", 0, "Valor introduzido!")
+        End Try
+        CN.Close()
+        Update()
+    End Sub
 End Class
